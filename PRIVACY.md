@@ -8,4 +8,4 @@ This program will not transfer any information to other networked systems unless
 
 安裝程式會在目前使用者的程式資料夾寫入程式、加入解除安裝登錄資訊、建立開始功能表捷徑，並可依選擇建立桌面捷徑。Inno Setup 會產生本機安裝紀錄；本程式不會上傳這些紀錄。解除安裝會移除安裝內容與建立的捷徑。
 
-GitHub 提供原始碼、議題、建置與下載服務，其網站行為適用 [GitHub 隱私聲明](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)。未來若接入 SignPath，提交建置產物供簽署屬於維護者的發佈流程，不是使用者執行桌面程式時的資料傳輸；相關服務適用 [SignPath 隱私政策](https://signpath.io/privacy-policy)。
+GitHub 提供原始碼、議題、建置與下載服務，其網站行為適用 [GitHub 隱私聲明](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)。

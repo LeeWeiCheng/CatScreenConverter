@@ -57,7 +57,6 @@ jobs:
             artifacts/release/*
             LICENSE
             THIRD-PARTY-NOTICES.md
-            CODE_SIGNING_POLICY.md
             PRIVACY.md
           if-no-files-found: error
           retention-days: 30
@@ -66,6 +65,6 @@ jobs:
         run: |
           @'
           ## Compilation completed
-          The installer is unsigned. No installer execution, application launch, desktop color test, signing request, or public Release publication was performed.
-          Source details and hashes are included in the artifact. SignPath integration remains pending approval and configuration.
+          The installer is unsigned. No installer execution, application launch, desktop color test, or public Release publication was performed.
+          Source details and hashes are included in the artifact.
           '@ | Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY

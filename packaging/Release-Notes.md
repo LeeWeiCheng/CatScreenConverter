@@ -25,7 +25,3 @@
 ## 開源授權
 
 本專案原創程式碼與插畫採用 [MIT 授權](https://github.com/LeeWeiCheng/CatScreenConverter/blob/main/LICENSE)，著作權標示為 QxQ。第三方執行元件保留各自授權。
-
-## Code signing policy
-
-正在準備 SignPath Foundation 免費開源簽署申請，尚未取得核准。完整政策與維護者資訊見 [Code signing policy](https://github.com/LeeWeiCheng/CatScreenConverter/blob/main/CODE_SIGNING_POLICY.md)。

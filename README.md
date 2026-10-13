@@ -12,10 +12,6 @@
 
 安裝檔尚未簽署發行者憑證；下載時可用發佈頁面的 `SHA256SUMS.txt` 核對檔案。
 
-### Code signing policy
-
-正在準備 SignPath Foundation 開源簽署申請，目前尚未取得核准。維護者、人工核准流程與來源驗證方式見 [Code signing policy](CODE_SIGNING_POLICY.md)；隱私說明見 [PRIVACY.md](PRIVACY.md)。
-
 Windows 64 位元桌面程式，提供「正常／貓」兩個模式。透過 Windows Magnification API 的全桌面色彩矩陣套用近似重映射，不自行擷取畫面、不開啟影片預覽視窗，也不變更螢幕解析度或縮放。
 
 ## 使用
@@ -84,7 +80,7 @@ dotnet publish CatVideo.csproj -c Release -r win-x64 --self-contained false -o a
 
 ## 參與專案
 
-功能建議與問題回報請使用 [Issues](https://github.com/LeeWeiCheng/CatScreenConverter/issues)。提交變更前請閱讀 [CONTRIBUTING.md](CONTRIBUTING.md)，安全問題請依 [SECURITY.md](SECURITY.md) 回報。
+功能建議與問題回報請使用 [Issues](https://github.com/LeeWeiCheng/CatScreenConverter/issues)。提交變更前請閱讀 [CONTRIBUTING.md](CONTRIBUTING.md)，安全問題請依 [SECURITY.md](SECURITY.md) 回報。程式如何處理資料，請見 [PRIVACY.md](PRIVACY.md)。
 
 ## 參考
 
