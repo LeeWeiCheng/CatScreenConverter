@@ -74,15 +74,14 @@ if (Get-Command git -ErrorAction SilentlyContinue) {
 }
 $sdkVersion = & dotnet --version
 if ($LASTEXITCODE -ne 0) { throw 'Cannot identify build SDK.' }
-$compilerBanner = & $InnoCompiler '/?'
-$compilerVersionMatch = [regex]::Match(($compilerBanner -join "`n"), 'Compiler engine version:\s*Inno Setup ([\d.]+)')
-if (-not $compilerVersionMatch.Success) { throw 'Cannot identify Inno Setup compiler engine version.' }
+$compilerVersion = ((& $InnoCompiler '--version') -join '').Trim()
+if ($LASTEXITCODE -ne 0 -or $compilerVersion -notmatch '^\d+\.\d+\.\d+$') { throw 'Cannot identify Inno Setup compiler engine version.' }
 $buildInfo = [ordered]@{
     Product = 'Cat螢幕轉換器'; Publisher = 'QxQ'; Version = $Version; License = 'MIT'
     Repository = 'https://github.com/LeeWeiCheng/CatScreenConverter'
     Commit = $sourceCommit; WorkingTreeDirty = $sourceDirty
     Sdk = $sdkVersion; CoreRuntime = $coreVersion; DesktopRuntime = $desktopVersion
-    InnoCompilerVersion = $compilerVersionMatch.Groups[1].Value
+    InnoCompilerVersion = $compilerVersion
     InnoCompilerSHA256 = (Get-FileHash -LiteralPath $InnoCompiler -Algorithm SHA256).Hash.ToLowerInvariant()
     GitHubRunUrl = if ($env:GITHUB_RUN_ID) { "$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID" } else { $null }
     Signature = 'unsigned'; RuntimeTestsExecuted = $false
