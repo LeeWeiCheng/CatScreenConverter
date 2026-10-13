@@ -2,6 +2,8 @@
 
 提供貓專用的色差顯示，讓值班畫面更好分辨。
 
+本專案採用 [MIT 授權](LICENSE)，著作權標示為 QxQ。歡迎使用、修改、分享與商用，請保留授權及著作權聲明。第三方元件依各自的授權散佈，詳見 [第三方聲明](THIRD-PARTY-NOTICES.md)。
+
 ## 下載安裝
 
 前往 [GitHub Releases](https://github.com/LeeWeiCheng/CatScreenConverter/releases)，下載 `QxQ-CatScreenConverter-Setup-1.0.0-win-x64.exe`。
@@ -10,11 +12,15 @@
 
 安裝檔尚未簽署發行者憑證；下載時可用發佈頁面的 `SHA256SUMS.txt` 核對檔案。
 
+### Code signing policy
+
+正在準備 SignPath Foundation 開源簽署申請，目前尚未取得核准。維護者、人工核准流程與來源驗證方式見 [Code signing policy](CODE_SIGNING_POLICY.md)；隱私說明見 [PRIVACY.md](PRIVACY.md)。
+
 Windows 64 位元桌面程式，提供「正常／貓」兩個模式。透過 Windows Magnification API 的全桌面色彩矩陣套用近似重映射，不自行擷取畫面、不開啟影片預覽視窗，也不變更螢幕解析度或縮放。
 
 ## 使用
 
-1. 先關閉已開啟的舊版，再開啟 `artifacts/CatVideo-WPF/CatVideo.exe`。預設為「正常」，啟動時不套用濾鏡。
+1. 先關閉已開啟的舊版，從開始功能表或桌面捷徑開啟「Cat螢幕轉換器」。預設為「正常」，啟動時不套用濾鏡。
 2. 按「貓」讓貓咪上工，套用全桌面效果。可以調整「貓用色差強度」、「工作畫面亮度」與「畫面明暗對比」。
 3. 按「正常」或 `Ctrl + Alt + N` 還原啟用貓模式之前的色彩矩陣。
 4. 正常關閉程式時也會還原。若 Windows 拒絕還原，程式會提示並保留視窗供重試。
@@ -50,13 +56,19 @@ WPF 版本已在目前螢幕環境完成初始尺寸、縮小與最大化排版�
 
 ### 安裝版
 
-需要 .NET 10 SDK 與 Inno Setup 7。使用下列指令建立包含執行元件的安裝檔：
+需要 .NET SDK（版本見 `global.json`）與 Inno Setup 7.1.0 x64。使用下列指令建立包含執行元件的安裝檔：
 
 ```powershell
 .\packaging\Build-Release.ps1 -InnoCompiler 'C:\path\to\Inno Setup 7\ISCC.exe'
 ```
 
-輸出位於 `artifacts/release`，包含安裝檔、SHA-256 校驗碼及發佈說明。此指令只編譯與打包，不執行安裝或啟動測試。`Assets/CatScreen.ico` 使用與視窗相同的貓臉向量，可用 Windows PowerShell 執行 `packaging/Export-Icon.ps1` 重新產生。
+輸出位於 `artifacts/release`，包含安裝檔、SHA-256 校驗碼、發佈說明及 `Build-Info.json` 來源紀錄。安裝包包含本專案 MIT 授權與實際 runtime 套件的第三方聲明。此指令只編譯與打包，不執行安裝或啟動測試。`Assets/CatScreen.ico` 使用與視窗相同的貓臉向量，可用 Windows PowerShell 執行 `packaging/Export-Icon.ps1` 重新產生。
+
+### GitHub 自動建置
+
+[Build Windows installer](https://github.com/LeeWeiCheng/CatScreenConverter/actions/workflows/build.yml) 在提交至 `main`、Pull Request 及手動執行時，使用 GitHub-hosted Windows runner 編譯及打包，並上傳名稱包含 `unsigned` 的建置產物。
+
+SDK、GitHub Actions 及 Inno Setup 下載檔版本固定在專案中，方便核對來源。此流程不簽署、不執行程式或安裝測試，也不自動建立 GitHub Release。CI artifact 是供檢查的編譯產物；一般使用者請下載正式 Releases。
 
 ### 開發用版本
 
@@ -69,6 +81,10 @@ dotnet publish CatVideo.csproj -c Release -r win-x64 --self-contained false -o a
 發佈是編譯驗證，不代表程式已執行或已完成螢幕效果測試。
 
 輸出為程式資料夾，移動或分享時請保留其中的所有檔案。若套件服務無法連線，且本機已安裝對應的 .NET 10 參考套件，可在上述指令加上 `-p:RestoreSources=D:\git\CatVideo`，僅使用本機來源建置。
+
+## 參與專案
+
+功能建議與問題回報請使用 [Issues](https://github.com/LeeWeiCheng/CatScreenConverter/issues)。提交變更前請閱讀 [CONTRIBUTING.md](CONTRIBUTING.md)，安全問題請依 [SECURITY.md](SECURITY.md) 回報。
 
 ## 參考
 

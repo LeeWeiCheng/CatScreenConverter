@@ -16,5 +16,8 @@
     <Company>QxQ</Company>
     <Description>提供貓專用的近似色差顯示</Description>
     <ApplicationIcon>Assets\CatScreen.ico</ApplicationIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/LeeWeiCheng/CatScreenConverter</RepositoryUrl>
+    <Copyright>Copyright (c) 2026 QxQ</Copyright>
   </PropertyGroup>
 </Project>

@@ -21,3 +21,11 @@
 這是近似的色差轉換，並非經過貓咪行為實驗驗證的色覺校正。HDR、多螢幕及獨佔全螢幕相容性尚待確認。
 
 安裝檔目前未使用發行者憑證簽署。若 Windows 顯示來源提醒，請核對下載來源與 `SHA256SUMS.txt`。
+
+## 開源授權
+
+本專案原創程式碼與插畫採用 [MIT 授權](https://github.com/LeeWeiCheng/CatScreenConverter/blob/main/LICENSE)，著作權標示為 QxQ。第三方執行元件保留各自授權。
+
+## Code signing policy
+
+正在準備 SignPath Foundation 免費開源簽署申請，尚未取得核准。完整政策與維護者資訊見 [Code signing policy](https://github.com/LeeWeiCheng/CatScreenConverter/blob/main/CODE_SIGNING_POLICY.md)。
